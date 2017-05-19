@@ -25,7 +25,7 @@ class Migration(migrations.Migration):
             name='XoxzoAlertUserData',
             fields=[
                 ('alertpluginuserdata_ptr', models.OneToOneField(parent_link=True, auto_created=True, primary_key=True, serialize=False, to='cabotapp.AlertPluginUserData')),
-                ('favorite_bone', models.CharField(max_length=50, blank=True)),
+                ('alert_number', models.CharField(max_length=50, blank=True)),
             ],
             options={
                 'abstract': False,
