@@ -27,8 +27,7 @@ class XoxzoAlert(AlertPlugin):
     author = "Shaurya"
 
     '''
-    Hook to send alerts. Since alert will be from a pre-recorded audio,
-    no need to create a custom message
+    Hook to send alerts. Using Text to Speech API.
     '''
     def send_alert(self, service, users, duty_officers):
         users = self._get_user_list(service, users, duty_officers)
