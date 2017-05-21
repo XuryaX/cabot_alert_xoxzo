@@ -42,7 +42,7 @@ class XoxzoAlert(AlertPlugin):
         })
         message = Template(xoxzo_template).render(c)
 
-        self._send_xoxzo_alert(service,user_numbers,message)
+        self._send_xoxzo_alert(user_numbers,message)
 
     '''
     Hook to send acknowledgement update via Text to Speech API.
@@ -57,7 +57,7 @@ class XoxzoAlert(AlertPlugin):
         })
         message = Template(xoxzo_update_template ).render(c)
 
-        self._send_xoxzo_alert(service,user_numbers,message)
+        self._send_xoxzo_alert(user_numbers,message)
 
     def _get_user_list(self,service,users,duty_officers):
         if service.overall_status == service.CRITICAL_STATUS:
@@ -65,7 +65,7 @@ class XoxzoAlert(AlertPlugin):
         else:
             return duty_officers
 
-    def _send_xoxzo_alert(self, service,user_numbers,message=None):
+    def _send_xoxzo_alert(self,user_numbers,message):
         api_sid = env.get('XOXZO_API_SID')
         api_key = env.get('XOXZO_API_KEY')
         call_origin = env.get('XOXZO_ORIGIN_NUMBER')
